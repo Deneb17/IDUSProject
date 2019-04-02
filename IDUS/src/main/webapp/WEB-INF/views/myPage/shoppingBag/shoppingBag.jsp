@@ -6,6 +6,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/commons/meta.jsp"%>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/shoppingBag.css">
 
 <meta charset="UTF-8">
 <title>장바구니</title>
@@ -61,14 +63,24 @@
 					</div>
 				</div>
 				<div class="blogContent">
-					<h1>장바구니 페이지</h1>
+					<%-- <h1>장바구니 페이지</h1>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/">[ 메인
 								페이지 ]</a></li>
 						<li><a href="${pageContext.request.contextPath}/myPage">[
 								마이 페이지 ]</a></li>
-					</ul>
-
+					</ul> --%>
+					<div class="title-style clf">
+						<h2 class="txt fl">장바구니</h2>
+						<ol class="page-location fr">
+							<li class="active"><em class="icon-num">1</em> <span>장바구니</span>
+								<i class="fa fa-angle-right"></i></li>
+							<li><em class="icon-num">2</em> <span>주문결제</span> <i
+								class="fa fa-angle-right"></i></li>
+							<li><em class="icon-num">3</em> <span>주문완료</span></li>
+						</ol>
+					</div>
+					
 				</div>
 			</div>
 		</div>
