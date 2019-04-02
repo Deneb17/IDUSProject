@@ -63,13 +63,7 @@
 					</div>
 				</div>
 				<div class="blogContent">
-					<%-- <h1>장바구니 페이지</h1>
-					<ul>
-						<li><a href="${pageContext.request.contextPath}/">[ 메인
-								페이지 ]</a></li>
-						<li><a href="${pageContext.request.contextPath}/myPage">[
-								마이 페이지 ]</a></li>
-					</ul> --%>
+				
 					<div class="title-style clf">
 						<h2 class="txt fl">장바구니</h2>
 						<ol class="page-location fr">
