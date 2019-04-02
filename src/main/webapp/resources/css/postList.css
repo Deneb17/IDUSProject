@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+.paging {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.paging button {
+    border: none;
+    background-color: white;
+    font-size: 15px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.paging button:hover {
+    background-color: var(--navy);
+    color: white;
+}

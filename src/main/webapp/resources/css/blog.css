@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+.atelier {
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.leftNav {
+    width: 250px;
+    background-color: var(--white-color);
+}
+
+.leftNav .profileImage {
+    width: 100%;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.leftNav .name {
+    text-align: center;
+    padding: 20px 0 10px;
+}
+
+.leftNav .introduction {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.blogProfile {
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    padding: 20px 10px;
+}
+
+.leftNav ul {
+    list-style: none;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.leftNav li {
+    margin-top: 10px;
+}
+.leftNav .menubtn {
+    background-color: var(--dark-blue);
+    color: var(--white-color);
+    border-radius: 5px;
+    width: 100%;
+    font-size: 13px;
+}
+
+.menubtn a {
+    display: block;
+    color: var(--white-color);
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+}
+
+.menubtn a:hover {
+    background-color: var(--white-color);
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+.info {
+    padding: 20px;
+    text-align: center;
+}
+
+.info h3 {
+    font-size: 13px;
+    padding-bottom: 10px;
+    color: #aaa;
+}
+
+.info p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.blogContent {
+    width: 100%;
+    padding: 50px 30px 70px;
+}
+
+.blogContent .pieceOnSail {
+    padding-bottom: 30px;
+}
+
+.pieceOnSail {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.pieceOnSail h3 {
+    padding-bottom: 15px;
+}
+.pieceContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-top: 15px;
+}
+
+.pieceContainer div {
+    width: 24.3%;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.pieceContainer a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+}
+
+.pieceContainer div:hover a {
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.postList {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 100px;
+    padding: 30px;
+}
+
+.postList ul {
+    list-style: none;
+}
+
+.postList h3 {
+    padding-bottom: 15px;
+}
+
+.postContainer {
+    padding-top: 15px;
+}
+.postContainer table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.postContainer thead tr {
+    border-bottom: 4px double #ccc;
+}
+.postContainer tr {
+    padding: 10px;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    transition: 0.5s;
+}
+
+.postContainer tbody tr:hover {
+    background-color: var(--high-light);
+    cursor: pointer;
+}

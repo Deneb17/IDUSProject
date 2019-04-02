@@ -1,0 +1,34 @@
+.authCheck {
+	margin-top: 10%;
+	display: block;
+	vertical-align: middle;
+	padding: 22px 24px;
+	vertical-align: middle;
+	text-align: center;
+	border: 2px solid black;
+}
+
+.authCheck .txt {
+	padding: 0px 10px;
+}
+
+.sub-txt {
+	letter-spacing: 1px;
+}
+
+.authCheck .btn {
+	padding: 5px 9px;
+	margin: 10px;
+	font-size: 16px;
+	border-radius: 3px;
+	background: #ffffff;
+	border: 2px solid black;
+	border-radius: 10%;
+	font-size: 16px;
+	border: 2px solid black;
+}
+
+.btn:hover {
+	color: white;
+	background: black;
+}

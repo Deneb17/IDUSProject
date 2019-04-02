@@ -1,0 +1,132 @@
+.blogContent .post {
+    padding-bottom: 20px;
+}
+.post h3 {
+    display: inline-block;
+    width: 70%
+}
+
+.post .postInfo {
+    display: inline-block;
+    width: 29%;
+    color: #aaa;
+    padding-bottom: 20px;
+    text-align: right;
+}
+
+.postInfo .nickName {
+    font-weight: bolder;
+    padding-right: 20px;
+}
+
+.post .postContent {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.post a {
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--navy);
+    color: white;
+    background-color: var(--navy);
+    text-decoration: none;
+}
+
+.post a:hover {
+    background-color: white;
+    color: var(--navy);
+}
+
+.post .modDelbtn {
+    padding-left: 84%;
+}
+
+.comment {
+    padding-bottom: 20px;
+}
+
+.comment .commentInput {
+    padding: 30px 0px;
+}
+
+.commentInput form {
+    display: inline-flex;
+    width: 100%;
+}
+
+.commentInput input {
+    resize: none;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    height: 25px;
+    width: 90%;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+.commentInput button {
+    width: 9%;
+    border: 1px solid var(--navy);
+    border-radius: 5px;
+    color: white;
+    background-color: var(--navy);
+    line-height: 0.8;
+}
+
+.commentInput button:hover {
+    background-color: white;
+    color: var(--navy);
+}
+
+.comment ul {
+    list-style: none;
+}
+
+.comment li {
+    padding: 10px 0px;
+    position: relative;
+}
+
+.comment li:nth-child(odd) {
+    background-color: var(--white-color)
+}
+
+.comment h4 {
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.comment span {
+    display: inline-block;
+    font-size: 13px;
+    color: #aaa;
+}
+.comment .commentContent {
+    font-size: 14px;
+}
+
+.comment .absolultBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.absolultBtn button {
+    background-color: var(--navy);
+    color: white;
+    padding: 3px;
+    border: 1px solid var(--navy);
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.absolultBtn button:hover {
+    background-color: white;
+    color: var(--navy);
+}

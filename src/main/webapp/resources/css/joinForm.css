@@ -1,0 +1,129 @@
+.centerText {
+	text-align: center;
+}
+
+.title {
+	font-size: 2em;
+	color: var(--navy);
+}
+
+.subLogo {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.subTitle {
+	font-size: 25px;
+}
+
+.top {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	padding-top: 40px;
+}
+
+.bottom {
+	padding-top: 20px;
+}
+
+.joinForm {
+	width: 70%;
+	margin: auto;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 40px;
+	margin-bottom: 70px;
+}
+
+.subLogo h3 {
+	font-size: 30px;
+	padding-bottom: 20px;
+}
+
+.joinForm .input {
+	text-align: left;
+	width: 70%;
+	margin: auto;
+}
+
+.input input {
+	border: 1px solid var(--red);
+	border-radius: 5px;
+	padding: 5px 20px;
+	font-size: 15px;
+	margin: auto;
+	width: 79%;
+	height: 35px;
+	margin: 0;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+
+.input input:focus {
+	box-shadow: 2px 2px 2px var(--navy);
+}
+
+.input label {
+	display: block;
+	padding-bottom: 10px;
+	font-weight: bolder;
+}
+
+.joinForm .button {
+	height: 35px;
+	width: 20%;
+	margin: 0;
+	border: 2px solid var(--navy);
+	border-radius: 5px;
+	background-color: var(--navy);
+	font-size: 15px;
+	color: white;
+	font-weight: bolder;
+}
+
+.joinForm .button:hover {
+	color: var(--navy);
+	background-color: white;
+	border: 2px solid var(--navy);
+}
+
+.input .input-max {
+	width: 100%;
+}
+
+.input .errorMsg {
+	height: 10px;
+	font-size: 13px;
+}
+
+.input textarea {
+	border: 1px solid var(--red);
+	border-radius: 5px;
+	padding: 5px 20px;
+	font-size: 15px;
+	margin: auto;
+	width: 100%;
+	height: 100px;
+	margin: 0;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	resize: none;
+	overflow: auto
+}
+
+.input .checkBox {
+	width: 15px;
+	height: 15px;
+}
+
+.input hr {
+	margin-bottom: 10px;
+}
+
+.joinForm .joinbtn {
+	margin-top: 20px;
+	width: 70%;
+	height: 50px;
+	font-size: 20px;
+	font-weight: bolder;
+}

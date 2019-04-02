@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="모두에게 열려있는 수제 브랜드 쇼핑몰 입니다.">
+    <meta name="keywords" content="수제, 쇼핑몰, 브랜드, 생활">
+
+    <!-- 구글 폰트 : 영문 필기체(Margarine), 한글(Nanum+Gothic) -->
+    <link href="https://fonts.googleapis.com/css?family=Margarine|Nanum+Gothic" rel="stylesheet">
+
+    <!-- 폰트 어썸 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="../../resources/js/jquery-3.3.1.min.js"></script>
+
+    <!--summernote-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
+
+    <!-- validation javascript -->
+    <script src="../../resources/js/addPieceFormValidation.js"></script>
+    <script src="../../resources/js/addPiece.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../resources/css/common.css">
+    <link rel="stylesheet" href="../../resources/css/main.css">
+    <link rel="stylesheet" href="../../resources/css/loginForm.css">
+    <link rel="stylesheet" href="../../resources/css/joinForm.css">
+    <link rel="stylesheet" href="../../resources/css/addPiece.css">
+    <link rel="stylesheet" href="../../resources/css/blog.css">
+    <link rel="stylesheet" href="../../resources/css/blogPiece.css">
+    <link rel="stylesheet" href="../../resources/css/postList.css">
+    <link rel="stylesheet" href="../../resources/css/postDetail.css">
+    <title>IDUS - 새로운 쇼핑을 경험하세요.</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <!-- 위쪽 헤더 -->
+            <div class="upper header">
+                <!-- 로고 -->
+                <div class="logo">
+                    <h1>
+                        <a href="${pageContext.request.contextPath}/">idus</a>
+                    </h1>
+                </div>
+                <!-- 검색 창 -->
+                <div class="searchBar">
+                    <input type="text" class="search" name="search" placeholder="작품, 작가 명을 입력 하세요.">
+                    <button class="searchBtn" type="button">검색</button>
+                </div>
+                <!-- 사용자 프로필 -->
+                <div class="profile">
+                    <a href="${pageContext.request.contextPath}/login">로그인</a>
+                    <a href="${pageContext.request.contextPath}/join">회원가입</a>
+                </div>
+            </div>
+            <div class="lower header">
+                <nav>
+                    <ul class="gnb">
+                        <li><a href="${pageContext.request.contextPath}/">메인</a></li>
+                        <li><a href="">신작품</a></li>
+                        <li><a href="">인기 작품</a></li>
+                        <li><a href="">인기 작가</a></li>
+                        <li><a href="">공방</a></li>
+                        <li><a href="">문의</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <!-- 헤더 -->
+            <div class="sectionHeader">
+                <h1>포스트</h1>
+                <hr>
+                <p>작가님의 최근 소식을 접하고 소통 해 보세요!</p>
+            </div>
+
+            <!-- 블로그 내용 -->
+            <div class="atelier">
+
+                <!-- 좌측 네비게이션 -->
+                <div class="leftNav">
+                    <!-- 프로필 -->
+                    <div class="blogProfile" onclick="window.location='${pageContext.request.contextPath}/blog/${artist.artistNo}'" style="cursor: pointer">
+                        <!-- 프로필 사진 : 블로그 주인 프로필 이미지 받아오기 -->
+                        <div class="profileImage" style="background-image: url(${artist.thumbnail})"></div>
+                        <!-- 작가 이름 -->
+                        <div class="name">
+                            <h3>${artist.nickName}</h3>
+                        </div>
+                        <!-- 자기소개 -->
+                        <div class="introduction">${artist.introduction}</div>
+                    </div>
+
+                    <c:if test="${artist.isManager()}">
+                        <!-- 자신 소유 블로그 일때 보이는 메뉴 -->
+                        <div class="loginMenu">
+                            <ul>
+                                <li class="menubtn"><a href="${pageContext.request.contextPath}/blog/addPiece">상품
+                                        등록</a></li>
+                                <li class="menubtn"><a href="${pageContext.request.contextPath}/blog/writePost">포스트
+                                        작성</a></li>
+                                <li class="menubtn"><a href="">나의 주문 관리</a></li>
+                            </ul>
+                        </div>
+                    </c:if>
+
+                    <!-- 일반 메뉴 -->
+                    <div class="generalMenu">
+                        <ul>
+                            <c:if test="${!artist.isManager() && !empty auth}">
+                                <!-- 타인의 공방에만 보이는 메뉴 -->
+                                <li class="menubtn"><a href="">즐겨찾기 추가</a></li>
+                            </c:if>
+                            <!-- 공통 메뉴 -->
+                            <li class="menubtn"><a href="${pageContext.request.contextPath}/blog/${artist.artistNo}/pieceList">상품보기</a></li>
+                            <li class="menubtn"><a href="${pageContext.request.contextPath}/blog/${artist.artistNo}/postList">포스트
+                                    보기</a></li>
+                        </ul>
+                    </div>
+                    <!-- 공방 정보 -->
+                    <div class="info">
+                        <h3>활동 정보</h3>
+                        <p>팔로우 : ${artist.follower}</p>
+                    </div>
+                </div>
+
+                <!-- 우측 -->
+                <div class="blogContent">
+                    <div class="post">
+                        <!-- 제목 -->
+                        <h3>레드냅 조언 "포그바, 레알 가고 싶으면 올여름 맨유 탈출해"</h3>
+                        <div class="postInfo">
+                            <!-- 닉네임 -->
+                            <span class="nickName">고양이</span>
+                            <!-- 작성시간(수정시간) -->
+                            <span class="time">2019/4/2(20202)</span>
+                        </div>
+                        <hr>
+                        <!-- 내용 -->
+                        <div class="postContent">
+                            [스포티비뉴스=이성필 기자] "폴 포그바는 올여름 맨체스터 유나이티드와 결별해야 한다." 
+
+토트넘 홋스퍼, 리버풀에서 뛰었던 전 잉글랜드 대표 제이미 레드냅이 폴 포그바(맨체스터 유나이티드)의 레알 마드리드 이적을 권유했다. 
+
+레드냅은 2일(한국시간) 영국의 대중지 데일리 메일을 통해 "맨유에서 충분한 경험을 했다. 올여름 맨유에서 나오는 것이 최고의 타이밍이라고 느낄지도 모른다"고 주장했다. 
+
+포그바는 레알을 두고 "세계에서 가장 큰 클럽 중 하나다. 축구 선수라면 뛰고 싶은 팀이지 않나"며 동경심을 숨기지 않았다. 또, 지네딘 지단 감독을 두고 "정말 유능하다"며 존경심도 나타냈다. 
+
+레알은 유럽축구연맹(UEFA) 챔피언스리그(CL) 8강에 오로지 못했고 스페인 프리메라리가에서도 우승권에서 멀어졌다. 빈손으로 시즌을 끝내야 할 판이다. 
+
+그러나 지단 감독이 레알로 다시 돌아오면서 분위기가 바뀌고 있다. 폴 포그바를 비롯해 사디오 마네(리버풀), 크리스티안 에릭센(토트넘 홋스퍼), 로베르트 레반도프스키(바이에른 뮌헨), 네이마르, 킬리앙 음바페(이상 파리 생제르맹) 등을 영입 후보군에 올렸다. 
+
+레드냅은 "레알은 다음 시즌 CL에 나갈 것이 확실하다. 올 시즌 CL 16강 탈락이 팀으로 오는 것을 막는 요인은 아니다"며 충분히 이적 가능함을 강조했다. 이어 "포그바가 만약 맨유를 떠나도 놀랄 일은 아니다"고 덧붙였다. 
+
+물론 맨유를 상징하는 스타가 떠나는 것은 안된다는 의견도 전했다. 그는 "개인적으로는 (맨유에) 남아 있었으면 한다. 모두가 그의 플레이를 보고 싶어한다. PL에는 포그바처럼 스타가 필요하다. 만약 맨유가 그를 붙잡는다면 팀의 미래 중심에 있을 것이라 본다"고 전했다. 
+
+또, "포그바에게 주장 자격을 부여해야 한다"며 맨유가 포그바를 붙잡기 위해서는 연봉 이상의 자격이 필요하다고 강조했다. 
+                        </div>
+                        <!-- c:if test -> 게시글이 나의 게시물일 경우 -->
+                        <div class="modDelbtn">
+                            <a href="">수 정</a>
+                            <a href="">삭 제</a>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <h3>댓글</h3>
+                        <hr>
+                        <!-- 댓글 등록 양식 : 로그인 시에만! -->
+                        <div class="commentInput">
+                            <form action="" method="post">
+                                <input type="text" name="comment" placeholder="댓글은 마음의 창입니다.">
+                                <button type="submit">등 록</button>
+                            </form>
+                        </div>
+                        <!-- 댓글 리스트 -->
+                        <ul>
+                            <li>
+                                <!-- 작성자 닉네임 -->
+                                <h4>level02콥등이는사회의악</h4>
+                                <!-- 작성 시간 -->
+                                <span>2시간전</span>
+                                <!-- 수정 시간 -->
+                                <span>(123123)</span>
+                                <!-- 댓글 내용 -->
+                                <div class="commentContent">
+                                    탈출이라고 하질않았는데 기레기샛끼 ㅉㅉ한심하다
+                                </div>
+                                <!-- 내가 쓴 코멘트 일 경우! -->
+                                <div class="absolultBtn">
+                                <button>수정</button> <button>삭제</button>
+                                </div>
+                            </li>
+                            <li>
+                                <h4>자티니</h4>
+                                <span>1시간전</span>
+                                <span>(123123)</span>
+                                <div class="commentContent">
+                                    제이미 래드냅ㅋㅋㅋㅋ 기자 씹 어그로 ㅋㅋㅋㅋ
+                                </div>
+                            </li>
+                            <li>
+                                <!-- 작성자 닉네임 -->
+                                <h4>level02콥등이는사회의악</h4>
+                                <!-- 작성 시간 -->
+                                <span>2시간전</span>
+                                <!-- 수정 시간 -->
+                                <span>(123123)</span>
+                                <!-- 댓글 내용 -->
+                                <div class="commentContent">
+                                    탈출이라고 하질않았는데 기레기샛끼 ㅉㅉ한심하다
+                                </div>
+                            </li>
+                            <li>
+                                <h4>자티니</h4>
+                                <span>1시간전</span>
+                                <span>(123123)</span>
+                                <div class="commentContent">
+                                    제이미 래드냅ㅋㅋㅋㅋ 기자 씹 어그로 ㅋㅋㅋㅋ
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <hr>
+                    <div class="postContainer">
+                        <!-- 출력할 포스트가 존재 할 경우 -->
+                        <table>
+                            <colgroup>
+                                <col span="1" style="width: 60%;">
+                                <col span="1" style="width: 20%">
+                                <col span="1" style="width: 20%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>작성시간</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                                <tr onclick="viewPost(${post.postNo})">
+                                    <td style="text-align: left; padding-left: 10px">제목1(0)</td>
+                                    <td>낮잠고양이</td>
+                                    <td>19/3/7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span class="paging">
+                            <button onclick="changePageBundle(-1)">&lt;&lt; 이전 5개</button>
+                            <button onclick="nextPage(${pageNo})">1</button>
+                            <button onclick="nextPage(${pageNo})">2</button>
+                            <button onclick="nextPage(${pageNo})">3</button>
+                            <button onclick="nextPage(${pageNo})">4</button>
+                            <button onclick="nextPage(${pageNo})">5</button>
+                            <button onclick="changePageBundle(1)">다음 5개 &gt;&gt;</button>
+                        </span>
+                        <!-- 상품 이름으로 포스트 검색 -->
+                    <form action="${pageContext.request.contextPath}/blog/${artist.artistNo}/postList" method="get" class="">
+                        <input type="search" placeholder="블로그 내 검색" name="title">
+                        <button type="submit">검색</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="upper footer">
+                <ul class="gnb">
+                    <li><a class="address" href="">이용약관</a></li>
+                    <li><a class="address" href="">개인정보 취급방침</a></li>
+                    <li><a class="address" href="">공지사항</a></li>
+                    <li><a class="address" href="">자주 묻는 질문</a></li>
+                </ul>
+            </div>
+            <div class="lower footer address">
+                <h2>idus</h2>
+                <p>주소 : 서울시 금천구</p>
+                <p>
+                    <a href="" class="address">http://www.idus.com</a>
+                </p>
+                <p>&copy; idus corp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
