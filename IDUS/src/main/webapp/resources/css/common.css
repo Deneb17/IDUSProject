@@ -1,0 +1,179 @@
+/*
+font-family: 'Margarine', cursive;
+font-family: 'Nanum Gothic', sans-serif;
+*/
+
+@charset "utf-8";
+
+:root {
+    --white-color: #EEEFF3;  /* 배경색 1 */
+    --light-gray: #ccc;  /* 배경색 2 */
+    --gray: #aaa;  /* footer 색 */
+    --dark-brown: #170D09;  /*글자색*/
+    --sky-blue: #7ecefc;
+    --drag: #cae4fc;  /* 셀렉션 색 */
+    --navy: #0c2040;
+    --red: #8a0917;
+    --high-light:#63D9CD;  /* 버튼 호버 */
+    --dark-blue: #0f1720;  /* 기본 테마색상 */
+}
+
+::-webkit-selection{
+    background-color: var(--drag);
+}
+
+::-moz-selection{
+    background-color: var(--drag);
+}
+
+::selection{
+    background-color: var(--drag);
+}
+
+
+/*공통 설정*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+head, body {
+    width: 100%;
+    height: 100%;
+    color: var(--dark-brown);
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px 10px;
+    transition: 0.5s;
+}
+
+a:hover {
+    color: var(--high-light);
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+h1 a:hover {
+	text-decoration: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding-top: 30px;
+    z-index: 100;
+    border-bottom: 4px solid var(--dark-blue);
+    background-color: white;
+}
+
+section {
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0px 50px;
+}
+
+.upper {
+    line-height: 2em;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.lower {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-family: 'Margarine', cursive;
+    font-size: 30px;
+}
+
+nav {
+    width: 100%;
+}
+
+.gnb {
+    width: 70%;
+    margin: auto;
+    padding-top: 10px;
+    display: flex;
+    list-style: none;
+    align-content: center;
+    justify-content: space-around;
+    font-size: 13px;
+}
+
+.searchBar {
+    height: 100%;
+    display: inline-flex;
+    padding: 0;
+}
+
+.search {
+    border: 3px solid var(--dark-blue);
+    height: 40px;
+    width: 450px;
+    padding: 5px 10px;
+}
+
+.searchBtn {
+    width: 50px;
+    height: 40px;
+    border: 3px solid var(--dark-blue);
+    background-color: var(--dark-blue);
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.searchBtn:hover {
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    padding-top: 10px;
+    border-top: 4px solid var(--dark-blue);
+    background-color: white;
+}
+
+.footer {
+    text-align: center;
+    color: var(--gray);
+}
+
+.address {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+.thumbnail {
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	border-radius: 50%;
+	margin: 0;
+}
+
+.profile {
+	font-size: 13px;
+	height: 35px;
+}

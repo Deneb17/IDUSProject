@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+.sectionHeader {
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    background-image: linear-gradient(rgba(100, 169, 244, 0.3),rgba(100, 169, 244, 0.5)), url(../asset/image/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.sectionHeader hr {
+    width: 400px;
+    margin: 20px auto;
+    height: 3px;
+    color: white;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.sectionHeader h1 {
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.sectionHeader p {
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.sectionContent {
+    padding: 70px 100px 90px;
+}
+
+.sectionContent form {
+    padding-top: 10px;
+}
+
+.sectionContent label {
+    display: block;
+    padding: 10px 0px;
+    font-size: 13px;
+    font-weight: bolder;
+}
+
+.sectionContent input {
+    margin-top: 5px;
+    width: 100%;
+    height: 30px;
+    padding: 5px 10px;
+    border: 1px solid var(--red);
+    border-radius: 5px;
+}
+
+.sectionContent input:focus {
+    box-shadow: 2px 2px 2px var(--red);
+}
+
+.sectionContent .subBtn {
+    border: 1px solid var(--dark-blue);
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    font-weight: bolder;
+    font-size: 17px;
+    background-color: var(--dark-blue);
+    color: white;
+    margin-top: 10px;
+    margin-left: 80%;
+}
+
+.sectionContent .subBtn:hover {
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    background-color: var(--white-color);
+}
+
+.sectionContent .option {
+    width: 96%;
+}
+
+.sectionContent .optionbtn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--dark-blue);
+    border-radius: 5px;
+    font-weight: bolder;
+    font-size: 17px;
+    background-color: var(--dark-blue);
+    color: white;
+    margin-left: 5px;
+}
+
+.sectionContent .optionbtn:hover {
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    background-color: var(--white-color);
+}
+
+#optionTarget {
+    list-style: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#optionTarget li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}

@@ -1,0 +1,24 @@
+.dropmember {
+	margin-top: 10%;
+	display: block;
+	vertical-align: middle;
+	padding: 22px 24px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.dropmember span {
+	font-size: 24px;
+}
+
+.dropmember #agree {
+	width: 20px;
+	height: 20px;
+}
+
+#dropbtn {
+	margin: 10px;
+	width: 80px;
+	height: 30px;
+	width: 80px;
+}

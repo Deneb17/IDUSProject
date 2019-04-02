@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 별명지정(중복만 안되면 됨) -->
+<mapper namespace="auth">
+	
+	<!-- 이메일로 회원 검색 : 로그인, 이메일 중복체크 등 -->
+	<select id="selectMemberByEmail" parameterType="java.lang.String" resultType="Member">
+		select * from member where email = #{email}
+	</select>
+	
+	<!-- 닉네임으로 회원 검색 : 닉네임 중복체크 -->
+	<select id="selectMemberByNickName" parameterType="java.lang.String" resultType="Member">
+		select * from member where nickName = #{nickName}
+	</select>
+	
+	<!-- 회원번호로 회원 검색 : 자동로그인 기타 등등 -->
+	<select id="selectMemberByMemberNo" parameterType="java.lang.Integer" resultType="Member">
+		select * from member where memberNo = #{memberNo}
+	</select>
+	
+	<!-- 세션 아이디로 자동 로그인 세션 검색 -->
+	<select id="selectLoginSession" parameterType="java.lang.String" resultType="LoginSession">
+		select * from loginSession where sessionId = #{sessionId}
+	</select>
+	
+	<!-- 자동 로그인 세션 추가 -->
+	<insert id="insertLoginSession" parameterType="LoginSession" >
+		insert into loginSession values(#{sessionId}, #{memberNo})
+	</insert>
+	
+	<!-- 회원가입 -->
+	<insert id="insertNewMember" parameterType="Member" useGeneratedKeys="true" keyProperty="memberNo">
+		insert into member(email, password, name, nickName, phone, introduction, zoneCode, address, detailAddress, thumbnail, point, follower, isSocial) 
+		values(#{email}, #{password}, #{name}, #{nickName}, #{phone}, #{introduction}, #{zoneCode}, #{address}, #{detailAddress}, #{thumbnail}, 0, 0, #{isSocial})
+	</insert>
+	
+	<!-- 자동 로그인 세션 삭제 -->
+	<delete id="deleteLoginSession" parameterType="java.lang.String">
+		delete from loginSession where 	sessionId = #{sessionId}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,84 @@
+div {
+	display: block;
+}
+
+
+.title-bar {
+	background: #555555;
+	color: #fff;
+	padding: 22px 24px;
+	vertical-align: middle;
+}
+
+.txt {
+	font-weight: normal;
+	font-size: 21px;
+	margin-right: 30px;
+}
+
+.dashboard-list {
+	list-style: none;
+	display: block;
+	
+}
+.dashboard-list:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.dashboard-list li {
+	float: left;
+	width: 25%;
+	padding: 24px;
+	border-left: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+.dashboard-list li:last-child {
+	border-right: 1px solid #d9d9d9;
+}
+
+
+.dashboard-list a {
+	font-size: 24px;
+	color: #dd5850;
+	display: block;
+}
+
+.label {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+	vertical-align: top;
+}
+
+.sub-title {
+	padding-top: 40px;
+	border-bottom: 1px solid #555;
+	padding-bottom: 8px;
+	margin-bottom: 16px;
+}
+
+.sub-title .txt {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+}
+
+.sub-title a {
+	display: block;
+	margin-top: 2px;
+	float: right;
+	color: #22a7af;
+	font-size: 14px;
+}
+
+
+.empty-msg {
+    padding: 60px 0;
+    display: block;
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}

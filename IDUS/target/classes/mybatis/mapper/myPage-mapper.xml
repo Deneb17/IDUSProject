@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 별명지정(중복만 안되면 됨) -->
+<mapper namespace="myPage">
+	
+	<update id="updateMemberInfo" parameterType="InformationModifyRequest">
+		update member set password = #{password}, name = #{name}, phone = #{phone}, introduction = #{introduction}, 
+		address = #{address}
+		where email = #{email}
+	</update>
+	
+	<delete id="deleteMemberByEamil" parameterType="java.lang.String">
+		delete from member where email = #{email}
+	</delete>
+	
+</mapper>

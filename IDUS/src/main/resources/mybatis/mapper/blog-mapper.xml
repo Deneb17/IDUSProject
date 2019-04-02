@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 별명지정(중복만 안되면 됨) -->
+<mapper namespace="blog">
+	
+	<!-- 작품 추가 -->
+	<insert id="insertPiece" parameterType="Piece" useGeneratedKeys="true" keyProperty="pieceNo" >
+		insert into piece(artistNo, title, pieceName, price, deliveryCharge, discount, description, createdDate, likeIt, star)
+		values(#{artistNo}, #{title}, #{pieceName}, #{price}, #{deliveryCharge}, #{discount}, #{description}, #{createdDate}, 0, 0)
+	</insert>
+	
+	<!-- 포스트 추가 -->
+	<insert id="insertPost" parameterType="Post" useGeneratedKeys="true" keyProperty="postNo" >
+		insert into post(memberNo, title, content, createdDate)
+		values(#{memberNo}, #{title}, #{content}, #{createdDate})
+	</insert>
+	
+	<!-- 작품 이미지 추가 -->
+	<insert id="insertPieceImage" parameterType="PieceImage" >
+		insert into pieceImage(pieceNo, url, isThumbnail) values(#{pieceNo}, #{url}, #{isThumbnail})
+	</insert>
+	
+	<!-- 옵션 추가 -->
+	<insert id="insertOptions" parameterType="Options" >
+		insert into options(pieceNo, options) values(#{pieceNo}, #{options})
+	</insert>
+	
+	
+	<select id="selectArtistByMemberNo" parameterType="java.lang.Integer" resultType="ArtistInfo">
+		select memberNo as artistNo, nickName, thumbnail, introduction, follower from member
+		where memberNo = #{memberNo}
+	</select>
+	
+	
+	<!-- 최근 12개 상품 정보 --> 
+	<select id="selectRecentPieces" parameterType="java.lang.Integer" resultType="PieceInfo">
+		select pieceNo, url as thumbnail, nickName as artist, title, discount, price, star from pieceList_view 
+		where artistNo = #{memberNo} order by pieceNo desc limit 0, 12;
+	</select>
+	
+	
+	<!-- 페이징 처리 된 상품 정보 -->
+	<select id="selectMorePieces" parameterType="map" resultType="PieceInfo">
+		select pieceNo, url as thumbnail, nickName as artist, title, discount, price, star from pieceList_view 
+		where artistNo = #{artistNo} order by pieceNo desc limit #{pageNo}, 12;
+	</select>
+	
+	
+	<!-- 최근 10개 포스트 -->
+	<select id="selectRecentPosts" parameterType="java.lang.Integer" resultType="PostInfo">
+		select postNo, title, nickName, createdDate from post_view where memberNo = #{memberNo} order by postNo desc limit 0, 10;
+	</select>
+	
+</mapper>

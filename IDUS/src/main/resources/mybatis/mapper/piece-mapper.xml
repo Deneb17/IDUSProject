@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace ="piece">
+    <select id="selectRecent" resultType="RecentItems" >
+    	select * from itemListRecent limit 20
+    </select>
+    
+    <select id="selectMoreRecent" parameterType="java.lang.Integer" resultType="RecentItems" >
+    	select * from itemListRecent limit #{bno}, 20
+    </select>
+    </mapper>
