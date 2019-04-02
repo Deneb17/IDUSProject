@@ -33,7 +33,7 @@
 			<nav>
 				<ul class="gnb">
 					<li><a href="${pageContext.request.contextPath}/">메인</a></li>
-					<li><a href="${pageContext.request.contextPath}/">최신 작품</a></li>
+					<li><a href="${pageContext.request.contextPath}/list/recent">최신 작품</a></li>
 					<li><a href="${pageContext.request.contextPath}/">인기 작품</a></li>
 					<li><a href="${pageContext.request.contextPath}/">인기 작가</a></li>
 					<li><a href="${pageContext.request.contextPath}/blog/${auth.memberNo}">공방</a></li>

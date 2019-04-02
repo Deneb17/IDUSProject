@@ -4,10 +4,10 @@
 
     <mapper namespace ="piece">
     <select id="selectRecent" resultType="RecentItems" >
-    	select * from itemListRecent limit 20
+    	select * from pieceList_view limit 20
     </select>
     
     <select id="selectMoreRecent" parameterType="java.lang.Integer" resultType="RecentItems" >
-    	select * from itemListRecent limit #{bno}, 20
+    	select * from pieceList_view limit #{bno}, 20
     </select>
     </mapper>
